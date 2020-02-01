@@ -1,0 +1,75 @@
+body
+{
+    margin: 0px;
+    padding: 0px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.clear { clear: both; display: block; }
+.f_right { float: right; }
+.f_left { float: left; }
+.hidden { display: none; }
+
+#main
+
+
+#one { height: 150px;width: 270px; }
+#two { height: 150px;width: 270px;  }
+#three {height: 150px;width: 270px;  }
+#four {height: 150px;width: 270px;  }
+
+.left_side
+{
+    width: 220px;
+    border:  2px solid #039;
+    text-align: center !important;
+    float: left;
+    margin: 0px auto 0px 7px;
+}
+
+#dragcenter
+{
+    padding: 0px auto 0px auto;
+    text-align: center;
+    border: 0px dashed #ff0000;
+    width:800px;
+    height:150px;
+    margin-top:10px;
+    margin-left:5px;
+}
+
+#object1, #object2, #object3, #object4, #object5, #object6, #object7,
+#object8, #object9, #object10, #object11, #object12
+{
+    font-size:.95em;
+    width:;
+    background-color:;
+    border:;
+    color:black;
+    cursor: pointer;
+    text-align: center;
+    padding: 6px;
+    margin: 4px;
+    float: left;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    /* Prevent text from being selectable */
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+#feedback
+{
+    border: 0px solid #ff0000;
+    float: left;
+    background-color:;
+    color: green;
+    width: 100%;
+    margin:0px;
+    padding:0px 0px 0px 0px;
+}

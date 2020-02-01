@@ -1,0 +1,232 @@
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script src="http://ontrack-media.net/AF/js/tpunch.js"></script>
+    <script type="text/javascript" >
+
+var object00 = document.getElementById('object00');
+var object11 = document.getElementById('object11');
+var object12 = document.getElementById('object12');
+var object13 = document.getElementById('object13');
+var object21 = document.getElementById('object21');
+var object22 = document.getElementById('object22');
+var object23 = document.getElementById('object23');
+var object31 = document.getElementById('object31');
+var object32 = document.getElementById('object32');
+var object33 = document.getElementById('object33');
+
+
+var objArray = [
+    '#object00',
+    '#object11',
+    '#object12',
+    '#object13',
+    '#object21',
+    '#object22',
+    '#object23',
+    '#object31',
+    '#object32',
+    '#object33 '
+];
+//var targArray = ['#target1', '#target2', '#target3', '#target4', '#target5'];
+var startDrag = '';
+var resetter = 0;
+//var draggable = ui.draggable;
+
+//jQ
+var j = jQuery.noConflict();
+j(document).ready(function()
+{
+//draggin
+j('#object00, #object11, #object12, #object13, #object21, #object22, #object23, #object31, #object32, #object33').draggable
+({
+start: function(event,ui) {
+startDrag = ui.position;
+//console.log(startDrag);
+},
+    containment: '#main',
+    cursor: 'move',
+    //snap: '#target1',
+    //snapMode: 'inner',
+    //snapTolerance: 35,
+    //revert: wrong,//call the wrong function on revert
+    //revert: true,
+    revert: function(valid)
+        {
+        if(!valid)
+            {
+            //this.remove();
+            j('#feedback').html('<h3>Try again!</h3>');
+            return true;
+            }
+        },
+    stack: 'div',//bring it to the top by adjusting z-index of the element
+    drag: clearer,
+    stop: function(event,ui)
+        {
+        //console.log("finished");
+        }
+    });
+
+//droppables
+j('#one').droppable
+    ({
+    drop: right,
+    accept: '#object00'
+    });
+
+j('#two').droppable
+    ({
+    drop: right,
+    accept: '#object11,#object12,#object13'
+    });
+
+j('#three').droppable
+    ({
+    drop: right,
+    accept: '#object21,#object22,#object23'
+    });
+
+j('#four').droppable
+    ({
+    drop: right,
+    accept: '#object31,#object32,#object33'
+    });
+
+});//end on doc load
+
+//EXTERNAL METHODS
+
+//clear the feedback div onDrag
+function clearer(event, ui)
+{ j('#feedback').html(''); }
+
+//if the dropTarget is correct
+function right(event, ui)
+{
+j('#feedback').html('<h2>Correct!</h2>');
+var draggable = ui.draggable;
+draggable.draggable('disable');
+draggable.draggable('option', 'revert', false);//turn revert off
+//draggable.offset(j(this).offset());//lock it on top of the targets x and y
+draggable.css('background-color','#ffffff');
+draggable.css('color','#09C');
+resetter++;
+if (resetter == 12)
+    {
+    //console.log(resetter);
+    j('#feedback').html('<h1 class="greentext">Congratulations! All correct!</h1>');
+
+    }
+else
+    {
+    //do nothing
+    }
+}
+
+
+</script>
+
+</head>
+<body>
+<center>
+
+<div id="main">
+    <table >
+        <tbody >
+            <tr>
+                <td>
+                    <h5>Electrico</h5>
+                    <div id="one" class="left_side"></div>
+                </td>
+                <td>
+                    <h5>Vegetal</h5>
+                    <div id="two" class="left_side"></div>
+                </td>
+                <td>
+                    <h5>Fuego</h5>
+                    <div id="three" class="left_side"></div>
+                </td>
+                <td>
+                    <h5>Agua</h5>
+                    <div id="four" class="left_side"></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+<div class="clear"></div>
+<font size="5" style="font-family:verdana;">POKEMONES</font>
+
+<table class="id2116">
+<tbody>
+<tr>
+
+<td>
+    <div id="object00"<!-- thermal --></div>
+        <p>
+            <img alt="" class="" src="sprites/pokemon_00.png" style="width: 80px; margin-bottom: 10px;" />
+        </p>
+        <figcaption class="captionStyle">Pikachu</figcaption>
+    </div>
+</td>
+
+<td><div id="object11"<!-- Light --><p><img alt="" class="" src="sprites/pokemon_11.png" style="width: 80px; margin-bottom: 10px;" /></p><figcaption class="captionStyle">Bulbasaur
+
+</figcaption></div></td>
+<td><div id="object12"<!-- elec --><p><img alt="" class="" src="sprites/pokemon_12.png" style="width: 80px; margin-bottom: 10px;" /></p><figcaption class="captionStyle">Ivysaur
+
+</figcaption></div></td>
+<td><div id="object13"<!-- sound --><p><img alt="" class="" src="sprites/pokemon_13.png" style="width: 80px; margin-bottom: 10px;" /></p><figcaption class="captionStyle">Venusaur
+
+</figcaption></div></td>
+
+<td><div id="object21"<!-- sound --><p><img alt="" class="" src="sprites/pokemon_21.png" style="width: 80px; margin-bottom: 10px;" /></p><figcaption class="captionStyle">Charmander
+
+</figcaption></div></td>
+<td><div id="object22"<!-- elec --><p><img alt="" class="" src="sprites/pokemon_22.png" style="width: 80px; margin-bottom: 10px;" /></p><figcaption class="captionStyle">Charmeleon
+
+</figcaption></div></td></tr>
+
+<tr>
+<td><div id="object23"<!-- Light --><p><img alt="" class="" src="sprites/pokemon_23.png" style="width: 80px; margin-bottom: 10px;" /></p><figcaption class="captionStyle">Charizard
+
+</figcaption></div></td>
+<td><div id="object31"<!-- ther --><p><img alt="" class="" src="sprites/pokemon_31.png" style="width: 80px; margin-bottom: 10px;" /></p><figcaption class="captionStyle">Squirtle
+
+</figcaption></div></td>
+
+
+<td><div id="object32"<!-- elec --><p><img alt="" class="" src="sprites/pokemon_32.png" style="width: 80px; margin-bottom: 10px;" /></p><figcaption class="captionStyle">Wartortle
+
+</figcaption></div></td>
+
+<td><div id="object33"<!-- thermal --><p><img alt="" class="" src="sprites/pokemon_33.png" style="width: 80px; margin-bottom: 10px;" /></p><figcaption class="captionStyle">Blastoise
+
+</figcaption></div></td>
+
+</tr>
+
+
+
+
+
+
+</tbody>
+</table>
+<br>
+<br>
+<br>
+<br>
+
+<div id="feedback" ></div>
+
+<div class="clear"></div>
+</div><!-- main-->
+</center>
+  <div align="center"><button type="reset" value="Reset"><a href=""><font size="3">Play Again</font></a></button></div>
+</body>
